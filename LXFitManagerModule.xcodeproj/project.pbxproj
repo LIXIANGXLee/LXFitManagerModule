@@ -13,6 +13,8 @@
 		048D65D62452A19F0065CA34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 048D65D42452A19F0065CA34 /* Main.storyboard */; };
 		048D65D82452A1A30065CA34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 048D65D72452A1A30065CA34 /* Assets.xcassets */; };
 		048D65DB2452A1A30065CA34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 048D65D92452A1A30065CA34 /* LaunchScreen.storyboard */; };
+		048D65E42452A1E30065CA34 /* LXFit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048D65E32452A1E30065CA34 /* LXFit.swift */; };
+		048D65E62452A31C0065CA34 /* LXFitManager.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 048D65E52452A31C0065CA34 /* LXFitManager.podspec */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,8 @@
 		048D65D72452A1A30065CA34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		048D65DA2452A1A30065CA34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		048D65DC2452A1A30065CA34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		048D65E32452A1E30065CA34 /* LXFit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LXFit.swift; sourceTree = "<group>"; };
+		048D65E52452A31C0065CA34 /* LXFitManager.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LXFitManager.podspec; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,6 +44,8 @@
 		048D65C22452A19E0065CA34 = {
 			isa = PBXGroup;
 			children = (
+				048D65E52452A31C0065CA34 /* LXFitManager.podspec */,
+				048D65E22452A1E30065CA34 /* LXFitManager */,
 				048D65CD2452A19F0065CA34 /* LXFitManagerModule */,
 				048D65CC2452A19F0065CA34 /* Products */,
 			);
@@ -65,6 +71,14 @@
 				048D65DC2452A1A30065CA34 /* Info.plist */,
 			);
 			path = LXFitManagerModule;
+			sourceTree = "<group>";
+		};
+		048D65E22452A1E30065CA34 /* LXFitManager */ = {
+			isa = PBXGroup;
+			children = (
+				048D65E32452A1E30065CA34 /* LXFit.swift */,
+			);
+			path = LXFitManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,6 +141,7 @@
 			files = (
 				048D65DB2452A1A30065CA34 /* LaunchScreen.storyboard in Resources */,
 				048D65D82452A1A30065CA34 /* Assets.xcassets in Resources */,
+				048D65E62452A31C0065CA34 /* LXFitManager.podspec in Resources */,
 				048D65D62452A19F0065CA34 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,6 +154,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				048D65D32452A19F0065CA34 /* ViewController.swift in Sources */,
+				048D65E42452A1E30065CA34 /* LXFit.swift in Sources */,
 				048D65CF2452A19F0065CA34 /* AppDelegate.swift in Sources */,
 				048D65D12452A19F0065CA34 /* SceneDelegate.swift in Sources */,
 			);

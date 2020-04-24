@@ -12,7 +12,10 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+               
+        print("------\(LXFit.fitInt(12))")
+        print("------\(UIFont.systemFont(ofSize: 12).fitFont)")
+
     }
 
 
