@@ -23,7 +23,7 @@ LXFit.fitFoint(CGPoint)
 LXFit.fitSize(CGSize)
 LXFit.fitRect(CGRect)
 LXFit.fitEdgeInsets(UIEdgeInsets)
-UIFont.systemFont(ofSize: 12).fitFont)
+UIFont.systemFont(ofSize: 12).fitFont
 
 ```
 
