@@ -1,4 +1,4 @@
-# LXPhotosManagerModule
+# LXFitManagerModule
 
 #### 项目介绍
  **
