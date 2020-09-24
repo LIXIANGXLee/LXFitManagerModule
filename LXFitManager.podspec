@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "LXFitManager"
-  spec.version      = "1.1.0"
+  spec.version      = "1.2.0"
   spec.summary      = "LXFitManager"
 
   # This description is used to generate tags and improve search results.
@@ -64,7 +64,7 @@ Pod::Spec.new do |spec|
   #  the deployment target. You can optionally include the target after the platform.
   #
 
-    spec.platform     = :ios, "9.2"
+    spec.platform     = :ios, "9.0"
     spec.swift_version = "5.0"
     
   # spec.platform     = :ios
