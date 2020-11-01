@@ -21,20 +21,50 @@ public final class LXFit: NSObject {
     public static var fitType = LXFitType.flex
 }
 
-// MARK: - UIFont 字体大小扩展的分类
+// MARK: - UIFont Int CGFloat Double CGSize CGRect UIEdgeInsets扩展的分类
 extension UIFont {
-   public var fitFont: UIFont { return self|~| }
+    /// UIFont 字体大小适配
+    public var fitFont:UIFont{return self|~|}
 }
+extension Int {
+    /// Int 屏幕大小适配
+    public var fitInt:Int{return self|~|}
+}
+extension CGFloat {
+    /// CGFloat 屏幕大小适配
+    public var fitFloat:CGFloat{return self|~|}
+}
+extension Double {
+    /// Double 屏幕大小适配
+    public var fitDouble:Double{return self|~|}
+}
+extension CGSize {
+    /// CGSize 屏幕大小适配
+    public var fitSize:CGSize{return self|~|}
+}
+extension CGRect {
+    /// CGRect 屏幕大小适配
+    public var fitRect:CGRect{return self|~|}
+}
+extension CGPoint {
+    /// CGPoint 屏幕大小适配
+    public var fitPoint:CGPoint{return self|~|}
+}
+extension UIEdgeInsets {
+    /// UIEdgeInsets 屏幕大小适配
+    public var fitEdgeInset:UIEdgeInsets { return self|~|}
+}
+
 
 // MARK: - 屏幕尺寸 扩展的分类
 extension LXFit {
-    public static func fitInt(_ value: Int) -> Int { value|~| }
-    public static func fitFloat(_ value: CGFloat) -> CGFloat { return value|~| }
-    public static func fitDouble(_ value: CGFloat) -> Double { return Double(value|~|) }
-    public static func fitFoint(_ value: CGPoint) -> CGPoint { value|~| }
-    public static func fitSize(_ value: CGSize) -> CGSize { value|~| }
-    public static func fitRect(_ value: CGRect) -> CGRect { value|~| }
-    public static func fitEdgeInsets(_ value: UIEdgeInsets) -> UIEdgeInsets { value|~| }
+    public static func fitInt(_ value: Int) -> Int { value.fitInt }
+    public static func fitFloat(_ value: CGFloat) -> CGFloat { return value.fitFloat }
+    public static func fitDouble(_ value: Double) -> Double { return Double(value.fitDouble) }
+    public static func fitFoint(_ value: CGPoint) -> CGPoint { value.fitPoint }
+    public static func fitSize(_ value: CGSize) -> CGSize { value.fitSize }
+    public static func fitRect(_ value: CGRect) -> CGRect { value.fitRect }
+    public static func fitEdgeInsets(_ value: UIEdgeInsets) -> UIEdgeInsets { value.fitEdgeInset }
 }
 
 // MARK: -  屏幕适配api
@@ -44,12 +74,12 @@ extension LXFit {
      ///
      /// - Parameters:
      ///   - value: 尺寸大小
-    fileprivate static func fitSize( _ value: CGFloat)  -> CGFloat {
+    fileprivate static func fitSize( _ value: Double)  -> Double {
         switch LXFit.fitType {
         case .none:
             return value
         case .flex:
-            return value * CGFloat(UIScreen.main.bounds.width /  CGFloat(375.0))
+            return value * Double(UIScreen.main.bounds.width) / 375.0
         }
     }
 }
@@ -57,26 +87,26 @@ extension LXFit {
 // MARK: -  自定义运算符 operator |~|
 postfix operator |~|
 /// 重载运算符
-public postfix func |~| (value: CGFloat) -> CGFloat {
-    return LXFit.fitSize(value)
+public postfix func |~| (value: Double) -> Double {
+    return LXFit.fitSize(Double(value))
 }
 
 public postfix func |~| (font: UIFont) -> UIFont {
-    return font.withSize(font.pointSize|~|)
+    return font.withSize(CGFloat(font.pointSize)|~|)
 }
 
 public postfix func |~| (value: Int) -> Int {
-    return Int(CGFloat(value)|~|)
+    return Int(Double(value)|~|)
 }
 
-public postfix func |~| (value: Float) -> CGFloat {
-    return CGFloat(value)|~|
+public postfix func |~| (value: CGFloat) -> CGFloat {
+    return CGFloat(Double(value)|~|)
 }
 
 public postfix func |~| (value: CGPoint) -> CGPoint {
     return CGPoint(
-        x: value.x|~|,
-        y: value.y|~|
+        x: Double(value.x)|~|,
+        y: Double(value.y)|~|
     )
 }
 public postfix func |~| (value: CGSize) -> CGSize {
