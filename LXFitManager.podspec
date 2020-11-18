@@ -16,8 +16,8 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "LXFitManager"
-  spec.version      = "4.0.0"
-  spec.summary      = "LXFitManager"
+  spec.version      = "4.1.0"
+  spec.summary      = "LXFitManager是一个屏幕尺寸适配的库"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?
@@ -25,7 +25,7 @@ Pod::Spec.new do |spec|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   spec.description  = <<-DESC
-  LXFitManager 是一个调用简单便利的屏幕尺寸适配的库
+  LXFitManager 是一个调用方便快捷的屏幕尺寸适配的库
                    DESC
 
   spec.homepage     = "https://github.com/LIXIANGXLee/LXFitManagerModule"

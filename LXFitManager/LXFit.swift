@@ -1,6 +1,6 @@
 //
 //  LXFit.swift
-//  LXFitManagerModule
+//  LXFitManager
 //
 //  Created by XL on 2020/4/23.
 //  Copyright © 2020 李响. All rights reserved.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-/// 可以设置屏幕是否是配的枚举类型
+/// 可以设置屏幕尺寸是否适配的枚举类型
 public enum LXFitType: Int {
     /// 关闭适配
     case none = 0
-    /// |~| 开启手机屏幕式配
+    /// |~| 开启手机屏幕尺寸适配
     case flex = 1
 }
 
@@ -20,7 +20,7 @@ public enum LXFitType: Int {
 public final class LXFit: NSObject {
     
     ///默认是屏幕适配
-    ///（外部可全局设置，设置none为全局禁止屏幕适配）
+    ///（外部可全局设置，设置none为全局禁止屏幕适配，默认是屏幕适配）
     public static var fitType = LXFitType.flex
     
 }
@@ -66,7 +66,7 @@ extension UIEdgeInsets {
     public var fitEdgeInset: UIEdgeInsets { return self|~| }
 }
 
-// MARK: - 屏幕尺寸 扩展的分类 可以通过类方法调用
+// MARK: - 屏幕尺寸适配 扩展的分类 可以通过类方法调用，也可以通过以上的分类调用，更方便快捷
 extension LXFit {
     public static func fitInt(_ value: Int) -> Int { value.fitInt }
     public static func fitFloat(_ value: CGFloat) -> CGFloat { value.fitFloat }
