@@ -16,7 +16,7 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "LXFitManager"
-  spec.version      = "3.1.0"
+  spec.version      = "4.0.0"
   spec.summary      = "LXFitManager"
 
   # This description is used to generate tags and improve search results.
@@ -25,7 +25,7 @@ Pod::Spec.new do |spec|
   #   * Write the description between the DESC delimiters below.
   #   * Finally, don't worry about the indent, CocoaPods strips it!
   spec.description  = <<-DESC
-  LXFitManager is manager
+  LXFitManager 是一个调用简单便利的屏幕尺寸适配的库
                    DESC
 
   spec.homepage     = "https://github.com/LIXIANGXLee/LXFitManagerModule"
@@ -53,9 +53,9 @@ Pod::Spec.new do |spec|
   #  profile URL.
   #
 
-  spec.author             = { "lixiang" => "lixiang@gokuaidian.com" }
+  spec.author             = { "lixiang" => "1367015013@qq.com" }
   # Or just: spec.author    = "lixiang"
-  # spec.authors            = { "lixiang" => "lixiang@gokuaidian.com" }
+  # spec.authors            = { "lixiang" => "1367015013@qq.com" }
   # spec.social_media_url   = "https://twitter.com/lixiang"
 
   # ――― Platform Specifics ――――――――――――――――――――――――――――――――――――――――――――――――――――――― #

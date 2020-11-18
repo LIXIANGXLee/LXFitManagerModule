@@ -1,6 +1,6 @@
 //
 //  LXFit.swift
-//  LXFoundationManager
+//  LXFitManagerModule
 //
 //  Created by XL on 2020/4/23.
 //  Copyright © 2020 李响. All rights reserved.
@@ -8,6 +8,7 @@
 
 import UIKit
 
+/// 可以设置屏幕是否是配的枚举类型
 public enum LXFitType: Int {
     /// 关闭适配
     case none = 0
@@ -17,8 +18,11 @@ public enum LXFitType: Int {
 
 // MARK: - 屏幕尺寸适配
 public final class LXFit: NSObject {
-    //默认是屏幕适配（外部可全局设置）
+    
+    ///默认是屏幕适配
+    ///（外部可全局设置，设置none为全局禁止屏幕适配）
     public static var fitType = LXFitType.flex
+    
 }
 
 // MARK: - UIFont Int CGFloat Double CGSize CGRect UIEdgeInsets扩展的分类
@@ -28,52 +32,52 @@ extension UIFont {
 }
 
 extension Int {
-    /// Int 屏幕大小适配
+    /// Int 屏幕尺寸大小适配
     public var fitInt: Int{ return self|~| }
 }
 
 extension CGFloat {
-    /// CGFloat 屏幕大小适配
+    /// CGFloat 屏幕尺寸大小适配
     public var fitFloat: CGFloat{ return self|~| }
 }
 
 extension Double {
-    /// Double 屏幕大小适配
+    /// Double 屏幕尺寸大小适配
     public var fitDouble: Double{ return self|~| }
 }
 
 extension CGSize {
-    /// CGSize 屏幕大小适配
+    /// CGSize 屏幕尺寸大小适配
     public var fitSize: CGSize{ return self|~| }
 }
 
 extension CGRect {
-    /// CGRect 屏幕大小适配
+    /// CGRect 屏幕尺寸大小适配
     public var fitRect: CGRect{ return self|~| }
 }
 
 extension CGPoint {
-    /// CGPoint 屏幕大小适配
+    /// CGPoint 屏幕尺寸大小适配
     public var fitPoint: CGPoint{ return self|~| }
 }
 
 extension UIEdgeInsets {
-    /// UIEdgeInsets 屏幕大小适配
+    /// UIEdgeInsets 屏幕尺寸大小适配
     public var fitEdgeInset: UIEdgeInsets { return self|~| }
 }
 
-// MARK: - 屏幕尺寸 扩展的分类
+// MARK: - 屏幕尺寸 扩展的分类 可以通过类方法调用
 extension LXFit {
     public static func fitInt(_ value: Int) -> Int { value.fitInt }
-    public static func fitFloat(_ value: CGFloat) -> CGFloat { return value.fitFloat }
-    public static func fitDouble(_ value: Double) -> Double { return Double(value.fitDouble) }
+    public static func fitFloat(_ value: CGFloat) -> CGFloat { value.fitFloat }
+    public static func fitDouble(_ value: Double) -> Double { Double(value.fitDouble) }
     public static func fitFoint(_ value: CGPoint) -> CGPoint { value.fitPoint }
     public static func fitSize(_ value: CGSize) -> CGSize { value.fitSize }
     public static func fitRect(_ value: CGRect) -> CGRect { value.fitRect }
     public static func fitEdgeInsets(_ value: UIEdgeInsets) -> UIEdgeInsets { value.fitEdgeInset }
 }
 
-// MARK: -  屏幕适配api
+// MARK: -  屏幕尺寸适配的api 当前文件可访问
 extension LXFit {
     
     /// 尺寸适配
@@ -92,6 +96,7 @@ extension LXFit {
 
 // MARK: -  自定义运算符 operator |~|
 postfix operator |~|
+
 /// 重载运算符
 fileprivate postfix func |~| (value: Double) -> Double {
     return LXFit.fitSize(Double(value))
