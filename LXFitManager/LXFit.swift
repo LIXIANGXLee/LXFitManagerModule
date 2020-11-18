@@ -70,7 +70,7 @@ extension UIEdgeInsets {
 extension LXFit {
     public static func fitInt(_ value: Int) -> Int { value.fitInt }
     public static func fitFloat(_ value: CGFloat) -> CGFloat { value.fitFloat }
-    public static func fitDouble(_ value: Double) -> Double { Double(value.fitDouble) }
+    public static func fitDouble(_ value: Double) -> Double { value.fitDouble }
     public static func fitFoint(_ value: CGPoint) -> CGPoint { value.fitPoint }
     public static func fitSize(_ value: CGSize) -> CGSize { value.fitSize }
     public static func fitRect(_ value: CGRect) -> CGRect { value.fitRect }
