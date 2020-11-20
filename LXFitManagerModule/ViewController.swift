@@ -15,7 +15,6 @@ class ViewController: UIViewController {
                
         print("------\(LXFit.fitInt(12))")
         print("------\(UIFont.systemFont(ofSize: 12).fitFont)")
-
         
         
 //        10.fitInt
@@ -24,7 +23,7 @@ class ViewController: UIViewController {
 //        UIEdgeInsets().fitEdgeInset
 //        CGRect().fitRect
 //        CGPoint().fitPoint
-        
+//
         let r = CGRect(x: 10, y: 10, width: 20, height: 20)
         
         print("==\(r.fitRect)")

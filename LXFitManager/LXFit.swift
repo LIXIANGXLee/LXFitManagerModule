@@ -8,7 +8,7 @@
 
 import UIKit
 
-/// 可以设置屏幕尺寸是否适配的枚举类型
+/// 是否开启屏幕尺寸适配（适配或者关闭适配）
 public enum LXFitType: Int {
     /// 关闭适配
     case none = 0
@@ -38,36 +38,37 @@ extension Int {
 
 extension CGFloat {
     /// CGFloat 屏幕尺寸大小适配
-    public var fitFloat: CGFloat{ return self|~| }
+    public var fitFloat: CGFloat{ self|~| }
 }
 
 extension Double {
     /// Double 屏幕尺寸大小适配
-    public var fitDouble: Double{ return self|~| }
+    public var fitDouble: Double{ self|~| }
 }
 
 extension CGSize {
     /// CGSize 屏幕尺寸大小适配
-    public var fitSize: CGSize{ return self|~| }
+    public var fitSize: CGSize{ self|~| }
 }
 
 extension CGRect {
     /// CGRect 屏幕尺寸大小适配
-    public var fitRect: CGRect{ return self|~| }
+    public var fitRect: CGRect{ self|~| }
 }
 
 extension CGPoint {
     /// CGPoint 屏幕尺寸大小适配
-    public var fitPoint: CGPoint{ return self|~| }
+    public var fitPoint: CGPoint{ self|~| }
 }
 
 extension UIEdgeInsets {
     /// UIEdgeInsets 屏幕尺寸大小适配
-    public var fitEdgeInset: UIEdgeInsets { return self|~| }
+    public var fitEdgeInset: UIEdgeInsets { self|~| }
 }
 
 // MARK: - 屏幕尺寸适配 扩展的分类 可以通过类方法调用，也可以通过以上的分类调用，更方便快捷
 extension LXFit {
+    
     public static func fitInt(_ value: Int) -> Int { value.fitInt }
     public static func fitFloat(_ value: CGFloat) -> CGFloat { value.fitFloat }
     public static func fitDouble(_ value: Double) -> Double { value.fitDouble }
@@ -86,10 +87,8 @@ extension LXFit {
     ///   - value: 尺寸大小
     fileprivate static func fitSize( _ value: Double)  -> Double {
         switch LXFit.fitType {
-        case .none:
-            return value
-        case .flex:
-            return value * Double(UIScreen.main.bounds.width) / 375.0
+        case .none: return value
+        case .flex: return value * Double(UIScreen.main.bounds.width) / 375.0
         }
     }
 }
@@ -98,50 +97,18 @@ extension LXFit {
 postfix operator |~|
 
 /// 重载运算符
-fileprivate postfix func |~| (value: Double) -> Double {
-    return LXFit.fitSize(Double(value))
-}
+fileprivate postfix func |~| (value: Double) -> Double { LXFit.fitSize(Double(value))}
 
-fileprivate postfix func |~| (font: UIFont) -> UIFont {
-    return font.withSize(CGFloat(font.pointSize)|~|)
-}
+fileprivate postfix func |~| (font: UIFont) -> UIFont {font.withSize(CGFloat(font.pointSize)|~|)}
 
-fileprivate postfix func |~| (value: Int) -> Int {
-    return Int(Double(value)|~|)
-}
+fileprivate postfix func |~| (value: Int) -> Int {Int(Double(value)|~|)}
 
-fileprivate postfix func |~| (value: CGFloat) -> CGFloat {
-    return CGFloat(Double(value)|~|)
-}
+fileprivate postfix func |~| (value: CGFloat) -> CGFloat {CGFloat(Double(value)|~|)}
 
-fileprivate postfix func |~| (value: CGPoint) -> CGPoint {
-    return CGPoint(
-        x: Double(value.x)|~|,
-        y: Double(value.y)|~|
-    )
-}
+fileprivate postfix func |~| (value: CGPoint) -> CGPoint {CGPoint(x: Double(value.x)|~|,y: Double(value.y)|~|)}
 
-fileprivate postfix func |~| (value: CGSize) -> CGSize {
-    return CGSize(
-        width: value.width|~|,
-        height: value.height|~|
-    )
-}
+fileprivate postfix func |~| (value: CGSize) -> CGSize {CGSize(width:value.width|~|,height: value.height|~|)}
 
-fileprivate postfix func |~| (value: CGRect) -> CGRect {
-    return CGRect(
-        x: value.origin.x|~|,
-        y: value.origin.y|~|,
-        width: value.size.width|~|,
-        height: value.size.height|~|
-    )
-}
+fileprivate postfix func |~| (value: CGRect) -> CGRect {CGRect(x:value.origin.x|~|,y: value.origin.y|~|,width:value.size.width|~|,height: value.size.height|~|)}
 
-fileprivate postfix func |~| (value: UIEdgeInsets) -> UIEdgeInsets {
-    return UIEdgeInsets(
-        top: value.top|~|,
-        left: value.left|~|,
-        bottom: value.bottom|~|,
-        right: value.right|~|
-    )
-}
+fileprivate postfix func |~| (value: UIEdgeInsets) -> UIEdgeInsets {UIEdgeInsets(top: value.top|~|,left: value.left|~|,bottom: value.bottom|~|,right: value.right|~|)}
