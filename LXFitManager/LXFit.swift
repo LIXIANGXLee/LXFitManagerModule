@@ -21,44 +21,48 @@ public final class LXFit: NSObject {
     
     ///默认是屏幕适配
     ///（外部可全局设置，设置none为全局禁止屏幕适配，默认是屏幕适配）
-    public static var fitType = LXFitType.flex
+    public static var fitType: LXFitType = LXFitType.flex
+    
+    /// 按照屏幕宽适配 默认是iphone6 适配标准 可自行修改 适配的标准以宽度为准
+    /// 如果修改适配标准，推荐在启动程序时就设置，以免在设置之前使用不准确问题
+    public static var fitWidthOfIpnone: Double = 375.0
     
 }
 
 // MARK: - UIFont Int CGFloat Double CGSize CGRect UIEdgeInsets扩展的分类
 extension UIFont {
     /// UIFont 字体大小适配
-    public var fitFont: UIFont{ return self|~| }
+    public var fitFont: UIFont { return self|~| }
 }
 
 extension Int {
     /// Int 屏幕尺寸大小适配
-    public var fitInt: Int{ return self|~| }
+    public var fitInt: Int { return self|~| }
 }
 
 extension CGFloat {
     /// CGFloat 屏幕尺寸大小适配
-    public var fitFloat: CGFloat{ self|~| }
+    public var fitFloat: CGFloat { self|~| }
 }
 
 extension Double {
     /// Double 屏幕尺寸大小适配
-    public var fitDouble: Double{ self|~| }
+    public var fitDouble: Double { self|~| }
 }
 
 extension CGSize {
     /// CGSize 屏幕尺寸大小适配
-    public var fitSize: CGSize{ self|~| }
+    public var fitSize: CGSize { self|~| }
 }
 
 extension CGRect {
     /// CGRect 屏幕尺寸大小适配
-    public var fitRect: CGRect{ self|~| }
+    public var fitRect: CGRect { self|~| }
 }
 
 extension CGPoint {
     /// CGPoint 屏幕尺寸大小适配
-    public var fitPoint: CGPoint{ self|~| }
+    public var fitPoint: CGPoint { self|~| }
 }
 
 extension UIEdgeInsets {
@@ -88,7 +92,7 @@ extension LXFit {
     fileprivate static func fitSize( _ value: Double)  -> Double {
         switch LXFit.fitType {
         case .none: return value
-        case .flex: return value * Double(UIScreen.main.bounds.width) / 375.0
+        case .flex: return value * Double(UIScreen.main.bounds.width) / LXFit.fitWidthOfIpnone
         }
     }
 }

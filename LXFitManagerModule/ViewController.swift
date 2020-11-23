@@ -13,6 +13,8 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
                
+        LXFit.fitWidthOfIpnone = 375
+        
         print("------\(LXFit.fitInt(12))")
         print("------\(UIFont.systemFont(ofSize: 12).fitFont)")
         
