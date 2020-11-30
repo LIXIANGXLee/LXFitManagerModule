@@ -1,4 +1,4 @@
-# LXFitManagerModule
+# LXFitManager
 
 #### 项目介绍
  **
