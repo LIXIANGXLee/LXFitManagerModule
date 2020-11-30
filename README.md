@@ -30,7 +30,7 @@ UIFont.systemFont(ofSize: 12).fitFont
 CGRect().fitRect
 Double().fitDouble
 CGFloat().fitFloat
-Int().fitInt
+Int().fitFloat
 UIEdgeInsets().fitEdgeInset
 CGSize().fitSize
 CGPoint().fitPoint
