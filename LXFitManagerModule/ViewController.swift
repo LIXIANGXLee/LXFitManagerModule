@@ -15,9 +15,9 @@ class ViewController: UIViewController {
                
         LXFit.fitWidthOfIpnone = 375
         
-        print("------\(LXFit.fitInt(12))")
         print("------\(UIFont.systemFont(ofSize: 12).fitFont)")
         
+       
         
 //        10.fitInt
 //        10.0.fitDouble
@@ -28,7 +28,7 @@ class ViewController: UIViewController {
 //
         let r = CGRect(x: 10, y: 10, width: 20, height: 20)
         
-        print("==\(r.fitRect)")
+        print("==\( 12.fitFloat) === \(LXFit.fitFloat(12))")
         
     }
 

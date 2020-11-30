@@ -16,8 +16,8 @@ Pod::Spec.new do |spec|
   #
 
   spec.name         = "LXFitManager"
-  spec.version      = "6.0.0"
-  spec.summary      = "LXFitManager是一个调用方便快捷的屏幕尺寸适配的库"
+  spec.version      = "6.1.0"
+  spec.summary      = "屏幕尺寸适配的库"
 
   # This description is used to generate tags and improve search results.
   #   * Think: What does it do? Why did you write it? What is the focus?

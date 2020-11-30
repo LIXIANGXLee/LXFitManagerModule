@@ -37,7 +37,7 @@ extension UIFont {
 
 extension Int {
     /// Int 屏幕尺寸大小适配
-    public var fitInt: Int { return self|~| }
+    public var fitFloat: CGFloat { return CGFloat(self)|~| }
 }
 
 extension CGFloat {
@@ -72,13 +72,25 @@ extension UIEdgeInsets {
 
 // MARK: - 屏幕尺寸适配 扩展的分类 可以通过类方法调用，也可以通过以上的分类调用，更方便快捷
 extension LXFit {
+    /// Int 屏幕尺寸大小适配
+    public static func fitFloat(_ value: Int) -> CGFloat { value.fitFloat }
     
-    public static func fitInt(_ value: Int) -> Int { value.fitInt }
+    /// CGFloat 屏幕尺寸大小适配
     public static func fitFloat(_ value: CGFloat) -> CGFloat { value.fitFloat }
+    
+    /// Double 屏幕尺寸大小适配
     public static func fitDouble(_ value: Double) -> Double { value.fitDouble }
+    
+    /// CGPoint 屏幕尺寸大小适配
     public static func fitFoint(_ value: CGPoint) -> CGPoint { value.fitPoint }
+    
+    /// CGSize 屏幕尺寸大小适配
     public static func fitSize(_ value: CGSize) -> CGSize { value.fitSize }
+    
+    /// CGRect 屏幕尺寸大小适配
     public static func fitRect(_ value: CGRect) -> CGRect { value.fitRect }
+    
+    /// UIEdgeInsets 屏幕尺寸大小适配
     public static func fitEdgeInsets(_ value: UIEdgeInsets) -> UIEdgeInsets { value.fitEdgeInset }
 }
 
@@ -101,18 +113,18 @@ extension LXFit {
 postfix operator |~|
 
 /// 重载运算符
-fileprivate postfix func |~| (value: Double) -> Double { LXFit.fitSize(Double(value))}
+fileprivate postfix func |~| (value: Double) -> Double { LXFit.fitSize(Double(value)) }
 
-fileprivate postfix func |~| (font: UIFont) -> UIFont {font.withSize(CGFloat(font.pointSize)|~|)}
+fileprivate postfix func |~| (font: UIFont) -> UIFont { font.withSize(CGFloat(font.pointSize)|~|) }
 
-fileprivate postfix func |~| (value: Int) -> Int {Int(Double(value)|~|)}
+fileprivate postfix func |~| (value: Int) -> Int { Int(Double(value)|~|) }
 
-fileprivate postfix func |~| (value: CGFloat) -> CGFloat {CGFloat(Double(value)|~|)}
+fileprivate postfix func |~| (value: CGFloat) -> CGFloat { CGFloat(Double(value)|~|) }
 
-fileprivate postfix func |~| (value: CGPoint) -> CGPoint {CGPoint(x: Double(value.x)|~|,y: Double(value.y)|~|)}
+fileprivate postfix func |~| (value: CGPoint) -> CGPoint { CGPoint(x: Double(value.x)|~|,y: Double(value.y)|~|) }
 
-fileprivate postfix func |~| (value: CGSize) -> CGSize {CGSize(width:value.width|~|,height: value.height|~|)}
+fileprivate postfix func |~| (value: CGSize) -> CGSize { CGSize(width:value.width|~|,height: value.height|~|) }
 
-fileprivate postfix func |~| (value: CGRect) -> CGRect {CGRect(x:value.origin.x|~|,y: value.origin.y|~|,width:value.size.width|~|,height: value.size.height|~|)}
+fileprivate postfix func |~| (value: CGRect) -> CGRect { CGRect(x:value.origin.x|~|,y: value.origin.y|~|,width:value.size.width|~|,height: value.size.height|~|) }
 
-fileprivate postfix func |~| (value: UIEdgeInsets) -> UIEdgeInsets {UIEdgeInsets(top: value.top|~|,left: value.left|~|,bottom: value.bottom|~|,right: value.right|~|)}
+fileprivate postfix func |~| (value: UIEdgeInsets) -> UIEdgeInsets { UIEdgeInsets(top: value.top|~|,left: value.left|~|,bottom: value.bottom|~|,right: value.right|~|) }
