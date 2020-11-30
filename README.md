@@ -20,7 +20,6 @@
   
 #### 以下提供多种用法
 ```
-LXFit.fitInt(12)
 LXFit.fitFloat(12)
 LXFit.fitFoint(CGPoint)
 LXFit.fitSize(CGSize)
