@@ -8,6 +8,10 @@
 
 import UIKit
 
+public func SCALE_SCREEN_FIT(_ distance: CGFloat) -> CGFloat {
+    return distance.fitFloat
+}
+
 /// 是否开启屏幕尺寸适配（适配或者关闭适配）
 public enum LXFitType: Int {
     /// 关闭适配
@@ -25,7 +29,7 @@ public final class LXFit: NSObject {
     
     /// 按照屏幕宽适配 默认是iphone6 适配标准 可自行修改 适配的标准以宽度为准
     /// 如果修改适配标准，推荐在启动程序时就设置，以免在设置之前使用不准确问题
-    public static var fitWidthOfIpnone: Double = 375.0
+    public static var fitWidth: Double = 375.0
     
 }
 
@@ -38,6 +42,10 @@ extension UIFont {
 extension Int {
     /// Int 屏幕尺寸大小适配
     public var fitFloat: CGFloat { return CGFloat(self)|~| }
+    
+    /// Int 屏幕尺寸大小适配 取整计算
+    public var fitInt: Int { return Int(CGFloat(self)|~|) }
+
 }
 
 extension CGFloat {
@@ -104,7 +112,7 @@ extension LXFit {
     fileprivate static func fitSize( _ value: Double)  -> Double {
         switch LXFit.fitType {
         case .none: return value
-        case .flex: return value * Double(UIScreen.main.bounds.width) / LXFit.fitWidthOfIpnone
+        case .flex: return value * Double(UIScreen.main.bounds.width) / LXFit.fitWidth
         }
     }
 }
@@ -113,18 +121,42 @@ extension LXFit {
 postfix operator |~|
 
 /// 重载运算符
-fileprivate postfix func |~| (value: Double) -> Double { LXFit.fitSize(Double(value)) }
+fileprivate postfix func |~| (value: Double) -> Double {
+    LXFit.fitSize(Double(value))
+}
 
-fileprivate postfix func |~| (font: UIFont) -> UIFont { font.withSize(CGFloat(font.pointSize)|~|) }
+fileprivate postfix func |~| (font: UIFont) -> UIFont { font.withSize(CGFloat(font.pointSize)|~|)
+}
 
-fileprivate postfix func |~| (value: Int) -> Int { Int(Double(value)|~|) }
+fileprivate postfix func |~| (value: Int) -> Int {
+    Int(Double(value)|~|)
+}
 
-fileprivate postfix func |~| (value: CGFloat) -> CGFloat { CGFloat(Double(value)|~|) }
+fileprivate postfix func |~| (value: CGFloat) -> CGFloat {
+    CGFloat(Double(value)|~|)
+}
 
-fileprivate postfix func |~| (value: CGPoint) -> CGPoint { CGPoint(x: Double(value.x)|~|,y: Double(value.y)|~|) }
+fileprivate postfix func |~| (value: CGPoint) -> CGPoint {
+    CGPoint(x: Double(value.x)|~|,
+            y: Double(value.y)|~|)
+}
 
-fileprivate postfix func |~| (value: CGSize) -> CGSize { CGSize(width:value.width|~|,height: value.height|~|) }
+fileprivate postfix func |~| (value: CGSize) -> CGSize {
+    CGSize(width:value.width|~|,
+           height: value.height|~|)
+    
+}
 
-fileprivate postfix func |~| (value: CGRect) -> CGRect { CGRect(x:value.origin.x|~|,y: value.origin.y|~|,width:value.size.width|~|,height: value.size.height|~|) }
+fileprivate postfix func |~| (value: CGRect) -> CGRect {
+    CGRect(x:value.origin.x|~|,
+           y: value.origin.y|~|,
+           width:value.size.width|~|,
+           height: value.size.height|~|)
+}
 
-fileprivate postfix func |~| (value: UIEdgeInsets) -> UIEdgeInsets { UIEdgeInsets(top: value.top|~|,left: value.left|~|,bottom: value.bottom|~|,right: value.right|~|) }
+fileprivate postfix func |~| (value: UIEdgeInsets) -> UIEdgeInsets {
+    UIEdgeInsets(top: value.top|~|,
+                 left: value.left|~|,
+                 bottom: value.bottom|~|,
+                 right: value.right|~|)
+}
